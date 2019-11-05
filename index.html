@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Json Practice</title>
+<script type="text/javascript" src = "JSONData.json"></script>
+</head>
+<body style = "background-color: #4A77BD; color: #fff; text-align: center;">
+
+
+<script type="text/javascript">
+
+  var coverSet = 
+  [
+{
+  "Title": "TiK ToK",
+  "Artist": "Kesha",
+  "Genre": "Pop",
+  "Released":2009
+},
+
+
+
+{
+  "Title": "Battlefield",
+  "Artist": "Jordin Sparks",
+  "Genre": "Pop",
+  "Released":2009
+},
+
+
+
+{
+  "Title": "Holiday",
+  "Artist": "Drizzy Rascal",
+  "Genre": "Pop",
+  "Released":2009
+},
+
+
+
+
+{
+  "Title": "Tighten Up",
+  "Artist": "The Black Keys",
+  "Genre": "Rock",
+  "Released":2010
+},
+
+
+
+{
+  "Title": "The Catalyst",
+  "Artist": "Linkin Park",
+  "Genre": "Rock",
+  "Released":2010
+},
+
+
+
+
+{
+  "Title": "Pumped Up Kicks",
+  "Artist": "Foster the People",
+  "Genre": "Rock",
+  "Released":2010
+},
+
+
+
+{
+  "Title": "You Make It Easy",
+  "Artist": "Jason Aldean",
+  "Genre": "Country",
+  "Released":2018
+},
+
+
+
+
+{
+  "Title": "Get Along",
+  "Artist": "Kenny Chesney",
+  "Genre": "Country",
+  "Released":2018
+},
+
+
+
+
+{
+  "Title": "Best Shot",
+  "Artist": "Jimmie Allen",
+  "Genre": "Country",
+  "Released":2018
+},
+
+
+
+
+
+{
+  "Title": "Born to Love You",
+  "Artist": "Laco",
+  "Genre": "Country",
+  "Released":2018
+}
+]
+  
+  var s = JSON.stringify(coverSet);
+  document.write(s);
+  var data = JSON.parse(s)
+  document.write("</br></br>")
+
+
+  for(i = 0; i < 10; i++)
+  {
+    document.write("<strong style = \"color: #4d2612 \">" + data[i].Title + "</strong>"  + "</br>")
+    document.write("Artist:" + data[i].Artist + "</br>")
+    document.write("Genre:" + data[i].Genre + "</br>")
+    document.write("Released:" + data[i].Released + "</br>")
+    document.write("</br>")
+  }
+</script>
+
+
+
+<select onchange="displayGenre(this.value)">
+  <option value = "placeholder">--Select--</option>
+  <option value = "Rock">Rock</option>
+  <option value = "Pop">Pop</option>
+  <option value = "Country">Country</option>
+</select>
+
+
+<div id = "DisplayChosenGenre"></div>
+
+
+<script>
+  function displayGenre(selectedGenre)
+  {
+    stringToPrint = ""
+    for(i = 0; i < 10; i++)
+    {
+      if(data[i].Genre == selectedGenre)
+        stringToPrint += createString(i);
+    }
+
+    document.getElementById("DisplayChosenGenre").innerHTML = stringToPrint
+  }
+
+
+
+  function createString(index)
+  {
+    stringToPrint = "<strong style = \"color: #4d2612 \">" + data[i].Title + "</strong>"  + "</br>";
+    stringToPrint += "Artist:" + data[i].Artist + "</br>";
+    stringToPrint += "Genre:" + data[i].Genre + "</br>";
+    stringToPrint += "Released:" + data[i].Released + "</br>";
+    stringToPrint += "</br>";
+
+    return stringToPrint;
+  }
+</script>
+</body>
+
+
+
+</html>
